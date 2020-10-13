@@ -1,7 +1,7 @@
 # FirstGameOnGC
 
 Attention, ce projet est prévu pour être compilé en utilisant l'ide Clion.
-Si vous ne l'avez pas, vous pouvez tous ont fait lancer le fichier MakeGB pour compiler.
+Si vous ne l'avez pas, vous pouvez lancer le fichier MakeGB qui se trouve dans "cmake-build-debug" pour compiler.
 
 Pour le moment, seul Windows est supporter avec les fichiers ".bat" mais les commandes à l'intérieur peuvent être faite manuellement.
 
