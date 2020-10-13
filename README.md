@@ -5,7 +5,7 @@ Si vous ne l'avez pas, vous pouvez lancer le fichier MakeGB qui se trouve dans "
 
 Pour le moment, seul Windows est supporter avec les fichiers ".bat" mais les commandes à l'intérieur peuvent être faite manuellement.
 
-Les prérequis pour compilé sont:
+Les prérequis pour compilé sont: <br/>
   1- avoir téléchargé et installer SDCC.
   <a href="https://sourceforge.net/projects/sdcc/files/sdcc-win64/">ici pour windows</a>
     ou avec la commande: sudo apt install build-essential sdcc sdcc-libraries pour linux
