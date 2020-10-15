@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="WallBreak" targetName="WallBreak" />
       <config projectName="WallBreak" targetName="myTest" />
+      <config projectName="WallBreak" targetName="WallBreak" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -12,13 +30,28 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7df9492a-07da-467d-9262-e893e5101a18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/WallBreak.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="7df9492a-07da-467d-9262-e893e5101a18" name="Default Changelist" comment="First Test Game in GameBoy">
+      <change afterPath="$PROJECT_DIR$/img/text5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgRepos/GameOver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgRepos/Title.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgRepos/Victory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgRepos/startText.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgRepos/text5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameOver.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameOver.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PressStart.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PressStart.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ResetScreen.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ResetScreen.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TitleMap.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TitleMap.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/VictoryMap.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/VictoryMap.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text5.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text5.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makeTileMap.bat" beforeDir="false" afterPath="$PROJECT_DIR$/makeTileMap.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainGB.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGB.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +69,15 @@
     <option name="directoryName" value="lirdpo24" />
   </component>
   <component name="ProjectId" id="1ipsDtsR3R78VqowaIU1JaR1WdF" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -94,21 +130,83 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602615751481</updated>
-      <workItem from="1602615752862" duration="11450000" />
+      <workItem from="1602615752862" duration="15547000" />
+      <workItem from="1602699148772" duration="11300000" />
+      <workItem from="1602773645193" duration="1358000" />
     </task>
+    <task id="LOCAL-00001" summary="First Test Game in GameBoy">
+      <created>1602628336678</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602628336678</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First Test Game in GameBoy">
+      <created>1602628542569</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602628542569</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First Test Game in GameBoy" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Test Game in GameBoy" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602619271854">
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602705339578">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602619271854" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602705339578" />
     <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1602627616904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602627616904" />
+    <state x="561" y="261" width="454" height="306" key="Github.ShareDialog" timestamp="1602628475836">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="561" y="261" width="454" height="306" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1602628475836" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1602702785773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602702785773" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1602702785773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602702785773" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1602702785773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602702785773" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1602702785773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602702785773" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1602667113961">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602667113961" />
+    <state x="484" y="270" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602628353853">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="484" y="270" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602628353853" />
   </component>
 </project>

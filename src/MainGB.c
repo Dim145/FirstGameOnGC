@@ -4,6 +4,12 @@
 #include <gb/gb.h>
 #include "breakout-tileset.h"
 #include "breakout-tilemap-level01Map.h"
+#include "text5.h"
+#include "PressStart.h"
+#include "ResetScreen.h"
+#include "GameOver.h"
+#include "TitleMap.h"
+#include "VictoryMap.h"
 
 #define PADDLE_Y 152
 #define LARGUEUR_PADDLE (3 * 8)
@@ -16,6 +22,7 @@
 extern void set_bkg_data(UINT8 first_tile, UINT8 nb_tiles, UINT8 *data);
 extern void set_bkg_tiles(UINT8 x, UINT8 y, UINT8 w, UINT8 h, UINT8 *tiles);
 extern void get_bkg_tiles(UINT8 x, UINT8 y, UINT8 w, UINT8 h, unsigned char *tiles);
+extern void set_win_tiles(UINT8 x, UINT8 y, UINT8 w, UINT8 h, unsigned char *tiles);
 
 extern UINT8 joypad(void);
 extern void waitpadup(void);
@@ -31,6 +38,9 @@ extern void set_sprite_tile(UINT8 nb, UINT8 tile);
 extern void set_sprite_data(UINT8 first_tile, UINT8 nb_tiles, unsigned char *data);
 extern void move_sprite(UINT8 nb, UINT8 x, UINT8 y);
 extern UINT8 get_sprite_prop(UINT8 nb);
+
+extern void reset(void);
+extern void delay(UINT16 d);
 
 UINT8 paddle_pos_x = 76;
 
@@ -94,39 +104,101 @@ UINT8 checkGameOver()
     return ball_pos_y + BALL_WIDTH >= 18 * 8 + 16;
 }
 
+void pressStart()
+{
+    UINT8 cptTours = 0;
+    UBYTE allum = 0;
+
+    while ( 1 )
+    {
+        UINT8 key = joypad();
+
+        if ( key & J_START ) break;
+
+        if ( cptTours % 50 == 0 )
+        {
+            set_bkg_tiles(5, 15, TILEMAP_START_WIDTH, TILEMAP_START_HEIGHT, allum ? TILEMAP_START : TILEMAP_RESET);
+
+            allum = 1- allum;
+            cptTours = 0;
+        }
+
+        delay(10);
+        cptTours++;
+    }
+}
+
 void game_draw_game_over()
 {
     HIDE_SPRITES;
 
+    set_bkg_tiles(6, 9 , TILEMAP_GAMEOVER_WIDTH, TILEMAP_GAMEOVER_HEIGHT, TILEMAP_GAMEOVER);
+
+    pressStart();
+    reset();
 }
 
 void game_draw_victory()
 {
-    HIDE_BKG;
     HIDE_SPRITES;
+
+    set_bkg_tiles(0, 0, TILEMAP_RESET_WIDTH, TILEMAP_RESET_HEIGHT, TILEMAP_RESET);
+    set_bkg_tiles(6, 9, TILEMAP_VICTORY_WIDTH, TILEMAP_VICTORY_HEIGHT, TILEMAP_VICTORY);
+
+    pressStart();
+    reset();
 }
 
-void main()
+void titleScreen()
 {
-    for (int i = 0; i < TILEMAP_WIDTH; ++i)
-        for (int j = 0; j < TILEMAP_HEIGHT; ++j)
-        {
-            TILEMAP[j + TILEMAP_HEIGHT * i] += DEPART_VRAM;
+    set_bkg_tiles(0, 0, TILEMAP_RESET_WIDTH, TILEMAP_RESET_HEIGHT, TILEMAP_RESET);
+    set_bkg_tiles(6, 9, TILEMAP_TITLE_WIDTH, TILEMAP_TITLE_HEIGHT, TILEMAP_TITLE);
 
-            if( TILEMAP[j + TILEMAP_HEIGHT * i] == TILE_BRICK_L) nbBriques++;
-        }
+    pressStart();
+}
 
-    set_bkg_data(DEPART_VRAM, LEVEL_01_TILE_COUNT, LEVEL_01);
-    set_bkg_tiles(0, 0, TILEMAP_WIDTH, TILEMAP_HEIGHT, TILEMAP);
+int main( int passInit, char const *argv[] )
+{
+    if( passInit != 784 )
+    {
+        for (int i = 0; i < TILEMAP_WIDTH; ++i)
+            for (int j = 0; j < TILEMAP_HEIGHT; ++j)
+            {
+                TILEMAP[j + TILEMAP_HEIGHT * i] += DEPART_VRAM;
+
+                if( TILEMAP[j + TILEMAP_HEIGHT * i] == TILE_BRICK_L) nbBriques++;
+            }
+
+        for (int i = 0; i < TILEMAP_START_WIDTH; ++i)
+            for (int j = 0; j < TILEMAP_START_HEIGHT; ++j)
+                TILEMAP_START[j + TILEMAP_START_HEIGHT * i] += DEPART_VRAM + LEVEL_01_TILE_COUNT;
+
+        for (int i = 0; i < TILEMAP_GAMEOVER_WIDTH; ++i)
+            for (int j = 0; j < TILEMAP_GAMEOVER_HEIGHT; ++j)
+                TILEMAP_GAMEOVER[j + TILEMAP_GAMEOVER_HEIGHT * i] += DEPART_VRAM + LEVEL_01_TILE_COUNT;
+
+        for (int i = 0; i < TILEMAP_VICTORY_WIDTH; ++i)
+            for (int j = 0; j < TILEMAP_VICTORY_HEIGHT; ++j)
+                TILEMAP_VICTORY[j + TILEMAP_VICTORY_HEIGHT * i] += DEPART_VRAM + LEVEL_01_TILE_COUNT;
+
+        for (int i = 0; i < TILEMAP_TITLE_WIDTH; ++i)
+            for (int j = 0; j < TILEMAP_TITLE_HEIGHT; ++j)
+                TILEMAP_TITLE[j + TILEMAP_TITLE_HEIGHT * i] += DEPART_VRAM + LEVEL_01_TILE_COUNT;
+
+        set_bkg_data(DEPART_VRAM + LEVEL_01_TILE_COUNT, TILESET_TEXT_TILE_COUNT, TILESET_TEXT);
+        set_bkg_data(DEPART_VRAM, LEVEL_01_TILE_COUNT, LEVEL_01);
+    }
 
     SHOW_BKG;
-
-    set_sprite_tile(0, DEPART_VRAM + 13);
-    move_sprite(0, ball_pos_x, ball_pos_y);
-
-    movePaddle(0);
-
     SHOW_SPRITES;
+
+    titleScreen();
+
+    set_bkg_tiles(0, 0, TILEMAP_WIDTH, TILEMAP_HEIGHT, TILEMAP);
+    set_sprite_tile(0, DEPART_VRAM + 13);
+
+    move_sprite(0, ball_pos_x, ball_pos_y);
+    movePaddle(0);
 
     UINT8 bVictory = 1;
     UINT8 key;
@@ -158,4 +230,6 @@ void main()
 
     if (!bVictory) game_draw_game_over();
     else           game_draw_victory();
+
+    return 0;
 }
